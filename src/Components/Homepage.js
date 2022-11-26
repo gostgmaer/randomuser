@@ -10,7 +10,7 @@ const Homepage = () => {
 
   useEffect(() => {
     getUser();
-  }, []);
+  }, [loader]);
 
   const getUser = async () => {
     const res = await InvokeAPI("api/", "get", "", "1", "");
@@ -25,7 +25,7 @@ const Homepage = () => {
       {loader ? (
         <Bars width={""}></Bars>
       ) : (
-       <ShowCard user={user} ></ShowCard>
+       <ShowCard user={user} seTuser={seTuser} setLoader={setLoader} loader={loader} ></ShowCard>
       )}
     </main>
   );
